@@ -5,7 +5,7 @@ import ActiveLink from '../../ActiveLink/ActiveLink';
 
 const Header = () => {
     return (
-        <div>
+        <div className='sticky-top'>
             <Navbar bg="dark">
                 <Container>
                     <Navbar.Brand className='text-white fs-2' as={Link} to='/'>Laptop Invoice</Navbar.Brand>
