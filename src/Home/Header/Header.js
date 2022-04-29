@@ -6,14 +6,19 @@ import ActiveLink from '../../ActiveLink/ActiveLink';
 const Header = () => {
     return (
         <div className='sticky-top'>
-            <Navbar bg="dark">
+
+            <Navbar bg="dark" expand="lg">
                 <Container>
                     <Navbar.Brand className='text-white fs-2' as={Link} to='/'>Laptop Invoice</Navbar.Brand>
-                    <Nav className="ms-auto">
-                        <Nav.Link className='text-white text-xl' as={ActiveLink} to='/home'>Home</Nav.Link>
-                        <Nav.Link className='text-white text-xl' as={ActiveLink} to='/login'>Login</Nav.Link>
-                        <Nav.Link className='text-white text-xl' as={ActiveLink} to='/register'>Register</Nav.Link>
-                    </Nav>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="ms-auto text-center">
+                            <Nav.Link className='text-white text-xl' as={ActiveLink} to='/home'>Home</Nav.Link>
+                            <Nav.Link className='text-white text-xl' as={ActiveLink} to='/myitems'>My Items</Nav.Link>
+                            <Nav.Link className='text-white text-xl' as={ActiveLink} to='/login'>Login</Nav.Link>
+                            <Nav.Link className='text-white text-xl' as={ActiveLink} to='/register'>Register</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
                 </Container>
             </Navbar>
         </div>
