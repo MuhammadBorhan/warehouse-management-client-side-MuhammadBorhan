@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button, Form, Spinner } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/Firebase.init';
 
 const Login = () => {
     const [signInWithEmailAndPassword, signUser, signLoading, signError] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
     let location = useLocation();
     const [user] = useAuthState(auth);
@@ -14,6 +15,9 @@ const Login = () => {
 
     if (signUser) {
         navigate(from, { replace: true });
+    }
+    if (googleUser) {
+        navigate('/myitems')
     }
 
     const handleSignin = event => {
@@ -39,9 +43,9 @@ const Login = () => {
                             <Form.Control type="password" name="password" placeholder="Password" required />
                         </Form.Group>
                         {
-                            signLoading && <p className='text-center text-green-600 text-xl fw-bold'><Spinner animation="border" variant="success" /></p>
+                            (signLoading || googleLoading) && <p className='text-center text-green-600 text-xl fw-bold'><Spinner animation="border" variant="danger" /></p>
                         }
-                        <p className='text-center text-red-500 fw-bold'>{signError?.message}</p>
+                        <p className='text-center text-red-500 fw-bold'>{signError?.message} {googleError?.message}</p>
 
                         <Button variant="primary mx-auto d-block fw-bold ls-2 tracking-widest" type="submit">
                             Login
@@ -49,7 +53,7 @@ const Login = () => {
                         <p className='text-center mt-3 mb-0 fw-bold'>New User? <Link to='/register'>Register</Link> </p>
                         <p className='text-center fw-bold'>Forget Password? <button className='btn btn-link fw-bold'>Please Reset</button> </p>
                         <div>
-                            <button className='border-2 p-2 mx-auto d-block bg-slate-800 text-white rounded'>Signin with google</button>
+                            <button onClick={() => signInWithGoogle()} className='border-2 p-2 mx-auto d-block bg-slate-800 text-white rounded'>Signin with google</button>
                         </div>
                     </Form>
                 </div>

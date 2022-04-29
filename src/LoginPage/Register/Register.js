@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { Button, Form, Spinner } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/Firebase.init';
 
 const Register = () => {
     const [error, setError] = useState('');
     const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
 
     if (emailUser) {
+        navigate('/myitems')
+    }
+    if (googleUser) {
         navigate('/myitems')
     }
 
@@ -47,13 +51,14 @@ const Register = () => {
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Control type="password" name="confirmpass" placeholder="Confirm Password" required />
-                            <p className='text-center text-red-500 fw-bold'>{error}</p>
+                            <p className='text-center text-red-500 fw-bold'>{error} {googleError?.message}</p>
                             {
-                                emailLoading && <p className='text-center text-green-600 text-xl fw-bold'><Spinner animation="border" variant="success" /></p>
+                                (emailLoading || googleLoading) && <p className='text-center text-green-600 text-xl fw-bold'><Spinner animation="border" variant="danger" /></p>
                             }
                             {
                                 emailError && <p className='text-center text-danger text-xl fw-bold'>Already User</p>
                             }
+
                         </Form.Group>
 
                         <Button variant="primary mx-auto d-block fw-bold ls-2 tracking-widest" type="submit">
@@ -61,7 +66,7 @@ const Register = () => {
                         </Button>
                         <p className='text-center mt-3 fw-bold'>Already User? <Link to='/login'>Login</Link> </p>
                         <div>
-                            <button className='border-2 p-2 mx-auto d-block bg-slate-800 text-white rounded'>Signin with google</button>
+                            <button onClick={() => signInWithGoogle()} className='border-2 p-2 mx-auto d-block bg-slate-800 text-white rounded'>Signin with google</button>
                         </div>
                     </Form>
                 </div>
