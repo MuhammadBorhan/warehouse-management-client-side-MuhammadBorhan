@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Spinner } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/Firebase.init';
@@ -49,7 +49,7 @@ const Register = () => {
                             <Form.Control type="password" name="confirmpass" placeholder="Confirm Password" required />
                             <p className='text-center text-red-500 fw-bold'>{error}</p>
                             {
-                                emailLoading && <p className='text-center text-green-600 text-xl fw-bold'>Loading...</p>
+                                emailLoading && <p className='text-center text-green-600 text-xl fw-bold'><Spinner animation="border" variant="success" /></p>
                             }
                             {
                                 emailError && <p className='text-center text-danger text-xl fw-bold'>Already User</p>
