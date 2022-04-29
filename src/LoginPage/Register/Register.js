@@ -3,6 +3,7 @@ import { Button, Form, Spinner } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/Firebase.init';
+import google from '../../images/google/google.png';
 
 const Register = () => {
     const [error, setError] = useState('');
@@ -66,7 +67,7 @@ const Register = () => {
                         </Button>
                         <p className='text-center mt-3 fw-bold'>Already User? <Link to='/login'>Login</Link> </p>
                         <div>
-                            <button onClick={() => signInWithGoogle()} className='border-2 p-2 mx-auto d-block bg-slate-800 text-white rounded'>Signin with google</button>
+                            <button onClick={() => signInWithGoogle()} className='border-2 p-2 mx-auto d-block bg-slate-800 text-white rounded-lg fw-bold d-flex items-center'> <span><img className='w-8 mr-4' src={google} alt="" /></span> <span>Signin with google</span></button>
                         </div>
                     </Form>
                 </div>
