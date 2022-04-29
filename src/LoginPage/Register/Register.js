@@ -1,21 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/Firebase.init';
 
 const Register = () => {
+    const [error, setError] = useState('');
+    const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const navigate = useNavigate();
+
+    if (emailUser) {
+        navigate('/login')
+    }
+
+
     const handleCreateUser = event => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
         const confirmPass = event.target.confirmpass.value;
-        console.log(email, password, confirmPass)
+
+        if (password.length < 6) {
+            setError('Password not longer than 6 character')
+            return;
+        } else if (password !== confirmPass) {
+            setError('Password did not mathced');
+            return;
+        } else {
+            createUserWithEmailAndPassword(email, password)
+        }
+
     }
     return (
         <div className='container'>
             <h3 className='text-center text-indigo-600 text-3xl py-4'>Please Register</h3>
             <div className="row">
                 <div className="col-12">
-                    <Form onClick={handleCreateUser} className='w-50 mx-auto p-3 mb-10 border-2'>
+                    <Form onSubmit={handleCreateUser} className='w-50 mx-auto p-3 mb-10 border-2'>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Control type="email" name="email" placeholder="Enter email" required />
                         </Form.Group>
@@ -26,7 +47,15 @@ const Register = () => {
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Control type="password" name="confirmpass" placeholder="Confirm Password" required />
+                            <p className='text-center text-red-500 fw-bold'>{error}</p>
+                            {
+                                emailLoading && <p className='text-center text-green-600 text-xl fw-bold'>Loading...</p>
+                            }
+                            {
+                                emailError && <p className='text-center text-danger text-xl fw-bold'>Already User</p>
+                            }
                         </Form.Group>
+
                         <Button variant="primary mx-auto d-block fw-bold ls-2 tracking-widest" type="submit">
                             Register
                         </Button>
