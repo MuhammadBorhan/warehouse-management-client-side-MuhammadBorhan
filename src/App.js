@@ -3,6 +3,8 @@ import './App.css';
 import Footer from './Home/Footer/Footer';
 import Header from './Home/Header/Header';
 import HomePage from './Home/HomePage/HomePage';
+import Login from './LoginPage/Login/Login';
+import Register from './LoginPage/Register/Register';
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage></HomePage>}></Route>
         <Route path='/home' element={<HomePage></HomePage>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
