@@ -6,6 +6,7 @@ import Header from './Home/Header/Header';
 import HomePage from './Home/HomePage/HomePage';
 import Login from './LoginPage/Login/Login';
 import Register from './LoginPage/Register/Register';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -14,7 +15,11 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage></HomePage>}></Route>
         <Route path='/home' element={<HomePage></HomePage>}></Route>
-        <Route path='/myitems' element={<MyItems></MyItems>}></Route>
+        <Route path='/myitems' element={
+          <PrivateRoute>
+            <MyItems></MyItems>
+          </PrivateRoute>
+        }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
       </Routes>

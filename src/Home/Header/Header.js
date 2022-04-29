@@ -1,9 +1,16 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import ActiveLink from '../../ActiveLink/ActiveLink';
+import auth from '../../Firebase/Firebase.init';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+    const handleSignout = () => {
+        signOut(auth)
+    }
     return (
         <div className='sticky-top'>
 
@@ -15,7 +22,9 @@ const Header = () => {
                         <Nav className="ms-auto text-center">
                             <Nav.Link className='text-white text-xl' as={ActiveLink} to='/home'>Home</Nav.Link>
                             <Nav.Link className='text-white text-xl' as={ActiveLink} to='/myitems'>My Items</Nav.Link>
-                            <Nav.Link className='text-white text-xl' as={ActiveLink} to='/login'>Login</Nav.Link>
+                            {
+                                user ? <Nav.Link onClick={handleSignout} className='text-white text-xl'>Log out</Nav.Link> : <Nav.Link className='text-white text-xl' as={ActiveLink} to='/login'>LogIn</Nav.Link>
+                            }
                             <Nav.Link className='text-white text-xl' as={ActiveLink} to='/register'>Register</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

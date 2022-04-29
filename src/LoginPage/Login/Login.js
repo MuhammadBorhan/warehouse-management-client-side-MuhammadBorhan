@@ -1,15 +1,19 @@
 import React from 'react';
 import { Button, Form, Spinner } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/Firebase.init';
 
 const Login = () => {
     const [signInWithEmailAndPassword, signUser, signLoading, signError] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
+    let location = useLocation();
+    const [user] = useAuthState(auth);
+
+    let from = location.state?.from?.pathname || "/";
 
     if (signUser) {
-        navigate('/myitems')
+        navigate(from, { replace: true });
     }
 
     const handleSignin = event => {

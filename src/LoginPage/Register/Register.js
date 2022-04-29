@@ -10,7 +10,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     if (emailUser) {
-        navigate('/login')
+        navigate('/myitems')
     }
 
 
