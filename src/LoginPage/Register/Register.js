@@ -7,6 +7,7 @@ import google from '../../images/google/google.png';
 
 const Register = () => {
     const [error, setError] = useState('');
+    const [show, setShow] = useState(false);
     const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
@@ -38,20 +39,34 @@ const Register = () => {
     }
     return (
         <div className='container'>
-            <h3 className='text-center text-indigo-600 text-3xl py-4'>Please Register</h3>
+            <h3 className='text-center text-green-600 text-3xl py-4'>Please Register</h3>
             <div className="row">
-                <div className="col-12">
-                    <Form onSubmit={handleCreateUser} className='w-50 mx-auto p-3 mb-10 border-2'>
+                <div className="col-12 col-md-6 mx-auto">
+                    <Form onSubmit={handleCreateUser} className='p-3 mb-10 border-2'>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Control type="email" name="email" placeholder="Enter email" required />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Control type="password" name="password" placeholder="Password" required />
+                            <div className='relative'>
+                                <Form.Control type={show ? "text" : "password"} name="password" placeholder="Password" required />
+                                <p onClick={() => setShow(!show)} className='absolute text-danger fw-bold right-0 top-2 pr-2 cursor-pointer'>
+                                    {
+                                        show ? "hide" : "show"
+                                    }
+                                </p>
+                            </div>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Control type="password" name="confirmpass" placeholder="Confirm Password" required />
+                            <div className='relative'>
+                                <Form.Control type={show ? "text" : "password"} name="confirmpass" placeholder="Confirm Password" required />
+                                <p onClick={() => setShow(!show)} className='absolute text-danger fw-bold right-0 top-2 pr-2 cursor-pointer'>
+                                    {
+                                        show ? "hide" : "show"
+                                    }
+                                </p>
+                            </div>
                             <p className='text-center text-red-500 fw-bold'>{error} {googleError?.message}</p>
                             {
                                 (emailLoading || googleLoading) && <p className='text-center text-green-600 text-xl fw-bold'><Spinner animation="border" variant="danger" /></p>
