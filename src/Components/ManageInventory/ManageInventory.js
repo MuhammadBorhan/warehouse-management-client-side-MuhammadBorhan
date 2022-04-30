@@ -4,7 +4,25 @@ import useProducts from '../../CustomHook/useProducts';
 import SingleInventory from '../SingleInventory/SingleInventory';
 
 const ManageInventory = () => {
-    const [products] = useProducts();
+    const [products, setProducts] = useProducts();
+
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure?');
+        if (proceed) {
+            const url = `http://localhost:5000/product/${id}`;
+            fetch(url, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const rest = products.filter(product => product._id !== id);
+                    setProducts(rest);
+                })
+        }
+        // console.log('tate ki')
+    }
+
     return (
         <div className='container py-4'>
             <div>
@@ -16,7 +34,7 @@ const ManageInventory = () => {
             <div className="row">
                 <div className="col-12">
                     {
-                        products.map(product => <SingleInventory key={product._id} product={product}></SingleInventory>)
+                        products.map(product => <SingleInventory handleDelete={handleDelete} key={product._id} product={product}></SingleInventory>)
                     }
                 </div>
             </div>
