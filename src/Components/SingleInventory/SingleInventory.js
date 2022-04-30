@@ -9,10 +9,10 @@ const SingleInventory = ({ product }) => {
             <tbody>
                 <tr className='text-center'>
                     <td>{id}</td>
-                    <td>Pro.Name: {name}</td>
-                    <td>Price: {price}</td>
+                    <td>{name}</td>
+                    <td>Price: ${price}</td>
                     <td>Quantity: {quantity}</td>
-                    <td>Supp.Name: {supplierName}</td>
+                    <td>Supplier: {supplierName}</td>
                     <td className='text-danger fw-bold cursor-pointer'>Delete</td>
                 </tr>
             </tbody>

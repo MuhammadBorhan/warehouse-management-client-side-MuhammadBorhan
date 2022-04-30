@@ -1,74 +1,74 @@
 [
     {
         "id": 1,
-        "name": "ENGINE DIAGNOSTIC",
+        "name": "HP OMEN 17-W295MS 17",
         "quantity": 3,
         "supplierName": "Borhan",
-        "price": "300",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "price": "1,299",
+        "description": "HP OMEN 17-W295MS 17 Gaming Laptop i7-7700HQ 1TB HDD 256GB SSD 16GB GTX 1070.",
         "img": "https://i.ibb.co/whyFR7r/2d10a256-68b7-4016-b054-9e566b15c8af-1-cc386d9dc265f52f289384b0003679a4.jpg"
     },
     {
         "id": 2,
-        "name": "WHEEL ALIGNMENT",
+        "name": "Samsung Notebook",
         "price": "100",
         "quantity": 7,
         "supplierName": "Atik",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "description": "A laptop combines the components, inputs, outputs, and capabilities of a desktop computer, including the display screen, small speakers, a keyboard.",
         "img": "https://i.ibb.co/n7x78xh/laptop-PNG5908.png"
     },
     {
         "id": 3,
-        "name": "OIL CHANGING",
-        "price": "150",
+        "name": "Refurbished Dell Latitude E6430 14",
+        "price": "143.98",
         "quantity": 4,
         "supplierName": "Nazmul",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "description": "Refurbished Dell Latitude E6430 14 Laptop, Windows 10 Pro, Intel Core i5-3210M Processor, 4GB RAM, 320GB Hard Drive.",
         "img": "https://i.ibb.co/FXRHS0f/laptop-png-laptop-png-image-6754-4042.png"
     },
     {
         "id": 4,
-        "name": "BRAKE REPARING",
-        "price": "180",
+        "name": "HP Pavilion 15-eh1012na Touchscreen",
+        "price": "469.99",
         "quantity": 5,
         "supplierName": "Shaon",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "description": "The Pavilion 15.6 inch Laptop packs more performance into a smaller profile, so you can get more done wherever you go. Enjoy mind-blowing entertainment with a micro-edge screen and Audio by B&O..",
         "img": " https://i.ibb.co/dWTcSrW/istockphoto-488793102-170667a.jpg"
     },
     {
         "id": 5,
-        "name": "WASH AND GLASSING",
-        "price": "100",
+        "name": "Acer Aspire 5 Slim Laptop, 15.6",
+        "price": "109.45",
         "quantity": 2,
         "supplierName": "Junayed",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "description": "If you are going to shop for either Acer Aspire 5 Slim vs Acer Swift 3 laptop, we will provide details about them that will help you choose the right one.",
         "img": "https://i.ibb.co/YjT0yVD/594929a8-8cb9-41b6-aec2-a52e73f6867a-182e8423b76c8be28ec20a52ff73aff5.jpg"
     },
     {
         "id": 6,
-        "name": "COMPLETE ANALYSIS",
-        "price": "300",
+        "name": "ASUS VivoBook",
+        "price": "310",
         "quantity": 6,
         "supplierName": "Imran",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa",
+        "description": "Asus beat the drum loudest for the ZenBook Flip 14, which it calls “the world’s thinnest 2-in-1 laptop with high-performance discrete graphics.",
         "img": "https://i.ibb.co/4KthNRQ/purepng-com-laptop-notebooklaptopsnotebooknotebook-computerclamshell-1701528354844ktgom.png"
     },
     {
         "id": 7,
-        "name": "COMPLETE ANALYSIS",
+        "name": "Apple laptop",
         "price": "200",
         "quantity": 4,
         "supplierName": "Tanvir",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa",
+        "description": "They come in different models such as the Intel 2.33GHz Core 2 Duo seen in the Apple MacBook pro, the 2.16Hz white Macbook, and others, all combining speed and design.",
         "img": "https://i.ibb.co/FJKgQLT/6a46a252-b366-4a34-b108-5153b4fc3eb4-1-d03c3a14d6325726d8dd63958d8806b1.jpg"
     },
     {
         "id": 8,
-        "name": "COMPLETE ANALYSIS",
+        "name": "Avita Essential Laptop",
         "price": "700",
         "quantity": 4,
         "supplierName": "Imran",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa",
+        "description": "The Avita Essential Price is set for India at Rs. 17,990. If you want to book this then it is available on the Amazon shopping site.",
         "img": "https://i.ibb.co/ctwrzsL/939c7858-36db-4d57-8bbb-ef543092aefa-0593257cdb1160afb0a2da7bb8eac739.jpg"
     }
 ]
