@@ -47,7 +47,7 @@ const HomePage = () => {
                     }
                 </div>
                 <button className='my-5 mx-auto d-block'>
-                    <Link to='/manageinventory' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>See all item</Link>
+                    <Link to='/manageinventory' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>Manage Inventory</Link>
                 </button>
             </div>
         </div>
