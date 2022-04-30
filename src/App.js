@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddItem from './Components/AddItem/AddItem';
 import ManageInventory from './Components/ManageInventory/ManageInventory';
 import MyItems from './Components/MyItems/MyItems';
 import Footer from './Home/Footer/Footer';
@@ -18,8 +19,9 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage></HomePage>}></Route>
         <Route path='/home' element={<HomePage></HomePage>}></Route>
-        <Route path='/manageinventory' element={<ManageInventory></ManageInventory>}></Route>
+        <Route path='/manageitem' element={<PrivateRoute><ManageInventory></ManageInventory></PrivateRoute>}></Route>
         <Route path='/update' element={<PrivateRoute><Update></Update></PrivateRoute>}></Route>
+        <Route path='/additem' element={<PrivateRoute><AddItem></AddItem></PrivateRoute>}></Route>
         <Route path='/myitems' element={<PrivateRoute><MyItems></MyItems></PrivateRoute>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
