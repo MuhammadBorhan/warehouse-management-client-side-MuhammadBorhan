@@ -39,14 +39,14 @@ const HomePage = () => {
                 </Carousel>
             </div>
 
-            <div className='container py-4'>
-                <h3 className='mb-4 text-center'>Inventory Items: {products.length}</h3>
+            <div className='container pt-4'>
+                <h3 className='mb-0 text-center'>Inventory Items</h3>
                 <div className="row">
                     {
                         itemProducts.map(product => <InventoryItems key={product.id} product={product}></InventoryItems>)
                     }
                 </div>
-                <button className='my-3 mt-4 mx-auto d-block'>
+                <button className='my-5 mx-auto d-block'>
                     <Link to='/manageinventory' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>See all item</Link>
                 </button>
             </div>
