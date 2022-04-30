@@ -43,7 +43,7 @@ const HomePage = () => {
                 <h3 className='mb-0 text-center'>Inventory Items</h3>
                 <div className="row">
                     {
-                        itemProducts.map(product => <InventoryItems key={product.id} product={product}></InventoryItems>)
+                        itemProducts.map(product => <InventoryItems key={product._id} product={product}></InventoryItems>)
                     }
                 </div>
                 <button className='my-5 mx-auto d-block'>

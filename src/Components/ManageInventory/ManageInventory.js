@@ -10,7 +10,7 @@ const ManageInventory = () => {
             <div className="row">
                 <div className="col-12">
                     {
-                        products.map(product => <SingleInventory key={product.id} product={product}></SingleInventory>)
+                        products.map(product => <SingleInventory key={product._id} product={product}></SingleInventory>)
                     }
                 </div>
             </div>
