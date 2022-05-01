@@ -28,7 +28,7 @@ const AddItem = () => {
                         <input className='border-2 pl-2' type="text"  {...register("slno")} placeholder='Serial no' />
                         <input className='border-2 pl-2' type="text"  {...register("name")} placeholder='Name' />
                         <input className='border-2 pl-2' type="text" {...register("quantity")} placeholder='Quantity' />
-                        <input className='border-2 pl-2' type="text" {...register("supplierName")} placeholder='Supplier' />
+                        <input className='border-2 pl-2' type="text" {...register("supplier")} placeholder='Supplier' />
                         <input className='border-2 pl-2' type="text" {...register("price")} placeholder='price' />
                         <input className='border-2 pl-2' type="text" {...register("img")} placeholder='Photo URL' />
                         <input className='bg-gray-500 text-white px-2 py-1' type="submit" value='Add New' />

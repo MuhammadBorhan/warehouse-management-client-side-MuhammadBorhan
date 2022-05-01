@@ -4,26 +4,43 @@ import { Link, useParams } from 'react-router-dom';
 
 const Update = () => {
     const [product, setProduct] = useState({});
+    const [relode, setRelode] = useState(false);
     const { id } = useParams();
-    const { img, _id, name, price, quantity, supplierName, description } = product;
+    const { img, _id, name, price, quantity, supplier, description } = product;
+    const [count, setCount] = useState(quantity);
 
     useEffect(() => {
-        const url = `http://localhost:5000/update/${id}`;
+        const url = `http://localhost:5000/product/${id}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => setProduct(data))
-    }, [id]);
+            .then(data => {
+                setProduct(data);
+                setRelode(!relode)
+            })
+    }, [id, relode]);
 
     const handleReduce = () => {
-        console.log('clicked')
+        setCount(count + 1)
     }
 
-    const handleQuantity = (event) => {
+    const handleQuantity = event => {
         event.preventDefault();
-        const addQuantity = event.target.quantity.value;
-        const result = parseInt(addQuantity) + quantity;
-        console.log(result)
-        event.target.reset();
+        const newQuantity = event.target.name.value;
+        const addQuantity = parseInt(newQuantity) + parseInt(quantity);
+        const user = { addQuantity };
+
+        const url = `http://localhost:5000/product/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                event.target.reset();
+            })
     }
 
     return (
@@ -37,16 +54,16 @@ const Update = () => {
                             <Card.Text>{description}</Card.Text>
                         </Card.Body>
                         <ListGroup className="list-group-flush">
+                            <ListGroupItem>Supplier: {supplier}</ListGroupItem>
+                            <ListGroupItem>Id: {_id}</ListGroupItem>
                             <ListGroupItem>Price: ${price}</ListGroupItem>
                             <ListGroupItem>Quantity: {quantity}</ListGroupItem>
-                            <ListGroupItem>Supplier: {supplierName}</ListGroupItem>
-                            <ListGroupItem>Id: {_id}</ListGroupItem>
                         </ListGroup>
                         <Card.Body>
                             <button onClick={handleReduce} className='btn btn-primary'>Deliver</button>
                         </Card.Body>
                         <form onSubmit={handleQuantity}>
-                            <input className='border-1 pl-2 py-1' type="text" name="quantity" id="" placeholder='Add quantity' />
+                            <input className='border-1 pl-2 py-1' type="text" name="name" id="" placeholder='New Quantity' />
                             <input className='btn btn-success' type="submit" value="Add" />
                         </form>
                     </Card>

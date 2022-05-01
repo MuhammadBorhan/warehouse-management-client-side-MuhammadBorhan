@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 
 const SingleInventory = ({ product, handleDelete }) => {
-    const { _id, slno, name, price, quantity, supplierName } = product;
+    const { _id, slno, name, price, quantity, supplier } = product;
 
     return (
         <Table striped bordered hover>
@@ -12,7 +12,7 @@ const SingleInventory = ({ product, handleDelete }) => {
                     <td>{name}</td>
                     <td>Price: ${price}</td>
                     <td>Quantity: {quantity}</td>
-                    <td>Supplier: {supplierName}</td>
+                    <td>Supplier: {supplier}</td>
                     <td onClick={() => handleDelete(_id)} className='text-danger fw-bold cursor-pointer'>
                         <button>Delete</button>
                     </td>
