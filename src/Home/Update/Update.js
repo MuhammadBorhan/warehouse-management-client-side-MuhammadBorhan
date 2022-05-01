@@ -14,8 +14,16 @@ const Update = () => {
             .then(data => setProduct(data))
     }, [id]);
 
-    const handleDecrement = () => {
-        setProduct(quantity - 1)
+    const handleReduce = () => {
+        console.log('clicked')
+    }
+
+    const handleQuantity = (event) => {
+        event.preventDefault();
+        const addQuantity = event.target.quantity.value;
+        const result = parseInt(addQuantity) + quantity;
+        console.log(result)
+        event.target.reset();
     }
 
     return (
@@ -35,8 +43,12 @@ const Update = () => {
                             <ListGroupItem>Id: {_id}</ListGroupItem>
                         </ListGroup>
                         <Card.Body>
-                            <button onClick={() => handleDecrement()} className='btn btn-primary'>Deliver</button>
+                            <button onClick={handleReduce} className='btn btn-primary'>Deliver</button>
                         </Card.Body>
+                        <form onSubmit={handleQuantity}>
+                            <input className='border-1 pl-2 py-1' type="text" name="quantity" id="" placeholder='Add quantity' />
+                            <input className='btn btn-success' type="submit" value="Add" />
+                        </form>
                     </Card>
                 </div>
             </div>
