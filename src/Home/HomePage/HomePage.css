@@ -1,4 +1,4 @@
 .slider-img img {
     height: 500px;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
