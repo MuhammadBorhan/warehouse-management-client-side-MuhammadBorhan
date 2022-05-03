@@ -25,7 +25,6 @@ const AddItem = () => {
             <div className="row">
                 <div className="col-12 col-md-6 mx-auto">
                     <form className='flex flex-column gap-4 border-4 p-3' onSubmit={handleSubmit(onSubmit)}>
-                        <input className='border-2 pl-2' type="text"  {...register("slno")} placeholder='Serial no' />
                         <input className='border-2 pl-2' type="text"  {...register("name")} placeholder='Name' />
                         <input className='border-2 pl-2' type="text" {...register("quantity")} placeholder='Quantity' />
                         <input className='border-2 pl-2' type="text" {...register("supplier")} placeholder='Supplier' />
