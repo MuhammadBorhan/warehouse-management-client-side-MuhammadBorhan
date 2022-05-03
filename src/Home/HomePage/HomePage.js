@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import slide1 from '../../../src/images/slider/slide1.jpg';
@@ -7,6 +6,9 @@ import slide3 from '../../../src/images/slider/slide3.jpg';
 import useProducts from '../../CustomHook/useProducts';
 import InventoryItems from '../InventoryItems/InventoryItems';
 import './HomePage.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLaptopHouse, faMoneyBill1Wave, faPeopleGroup, faStar } from '@fortawesome/free-solid-svg-icons';
+
 
 const HomePage = () => {
     const [products] = useProducts();
@@ -51,34 +53,34 @@ const HomePage = () => {
                 </button>
             </div>
 
-            <div className='bg-dark text-white opacity-40 py-3'>
+            <div className='bg-image py-5 mb-3'>
                 <div className="container">
-                    <h3 className='text-center w-48 mx-auto py-2 text-warning fw-bold border-b-2'>More Details</h3>
-                    <div className="row">
-                        <div className="col-12 col-md-3 text-center">
-                            <p className='text-3xl'><span>icon</span></p>
+                    <div className="row text-white">
+                        <div className="col-12 col-md-3 text-center zindexFixed ">
+                            <p className='text-4xl'><FontAwesomeIcon icon={faLaptopHouse} /></p>
                             <p className='text-5xl'>1400</p>
                             <p className='text-xl'>Laptop Sold</p>
                         </div>
-                        <div className="col-12 col-md-3 text-center">
-                            <p className='text-3xl'><span>icon</span></p>
-                            <p className='text-5xl'>$149,000</p>
+                        <div className="col-12 col-md-3 text-center zindexFixed">
+                            <p className='text-4xl'><FontAwesomeIcon icon={faMoneyBill1Wave} /></p>
+                            <p className='text-5xl'>$840,300</p>
                             <p className='text-xl'>Amount Sold</p>
                         </div>
-                        <div className="col-12 col-md-3 text-center">
-                            <p className='text-3xl'><span>icon</span></p>
+                        <div className="col-12 col-md-3 text-center zindexFixed">
+                            <p className='text-4xl'><FontAwesomeIcon icon={faPeopleGroup} /></p>
                             <p className='text-5xl'>100%</p>
                             <p className='text-xl'>Customer Satisfaction</p>
                         </div>
-                        <div className="col-12 col-md-3 text-center">
-                            <p className='text-3xl'><span>icon</span></p>
-                            <p className='text-5xl'>5*</p>
+                        <div className="col-12 col-md-3 text-center zindexFixed">
+                            <p className='text-4xl'><FontAwesomeIcon icon={faStar} /></p>
+                            <p className='text-5xl'>4.99</p>
                             <p className='text-xl'>Customer Rating</p>
                         </div>
-
                     </div>
                 </div>
+                <div className="overlay"></div>
             </div>
+
 
             <div className='bg-dark text-white opacity-80 py-3'>
                 <div className="container">
@@ -98,8 +100,8 @@ const HomePage = () => {
                         <div className="col-12 col-md-4 text-center">
                             <p className='text-3xl'>Latest Post</p>
                             <div>
-                                <p>See your message here. Make it compelling to attract other people to read and click on your <a className='text-info' href="/#">http://links</a> to your site.</p>
-                                <p>See your message here. Make it compelling to attract other people to read and click on your <a className='text-info' href="/#">http://links</a> to your site.</p>
+                                <p> <span><FontAwesomeIcon icon={faStar} /></span> See your message here. Make it compelling to attract other people to read and click on your <a className='text-info' href="/#">http://links</a> to your site.</p>
+                                <p><span><FontAwesomeIcon icon={faStar} /></span> See your message here. Make it compelling to attract other people to read and click on your <a className='text-info' href="/#">http://links</a> to your site.</p>
                             </div>
                         </div>
                         <div className="col-12 col-md-4 text-center">
