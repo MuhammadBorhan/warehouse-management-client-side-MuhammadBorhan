@@ -17,6 +17,7 @@ const ManageInventory = () => {
                 .then(data => {
                     console.log(data);
                     const rest = products.filter(product => product._id !== id);
+                    console.log(rest)
                     setProducts(rest);
                 })
         }
@@ -30,7 +31,7 @@ const ManageInventory = () => {
                     <Link to='/additem' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>Add New Item</Link>
                 </button>
             </div>
-            <h3 className='text-center mb-4'>Total Products:{products.length}</h3>
+            <h3 className='text-center mb-4'>All Inventory Items</h3>
             <div className="row">
                 <div className="col-12">
                     {

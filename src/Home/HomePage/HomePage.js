@@ -7,7 +7,8 @@ import useProducts from '../../CustomHook/useProducts';
 import InventoryItems from '../InventoryItems/InventoryItems';
 import './HomePage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLaptopHouse, faMoneyBill1Wave, faPeopleGroup, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faLaptopHouse, faMoneyBill1Wave, faPeopleGroup, faStar, faAddressBook, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+// import { } from '@fortawesome/free-brands-svg-icons'
 
 
 const HomePage = () => {
@@ -56,23 +57,23 @@ const HomePage = () => {
             <div className='bg-image py-5 mb-3'>
                 <div className="container">
                     <div className="row text-white">
-                        <div className="col-12 col-md-3 text-center zindexFixed ">
-                            <p className='text-4xl'><FontAwesomeIcon icon={faLaptopHouse} /></p>
+                        <div className="col-12 col-md-3 mb-5 mb-md-0 text-center zindexFixed ">
+                            <p className='text-4xl text-blue-400'><FontAwesomeIcon icon={faLaptopHouse} /></p>
                             <p className='text-5xl'>1400</p>
                             <p className='text-xl'>Laptop Sold</p>
                         </div>
-                        <div className="col-12 col-md-3 text-center zindexFixed">
-                            <p className='text-4xl'><FontAwesomeIcon icon={faMoneyBill1Wave} /></p>
+                        <div className="col-12 col-md-3 mb-5 mb-md-0 text-center zindexFixed">
+                            <p className='text-4xl text-rose-200'><FontAwesomeIcon icon={faMoneyBill1Wave} /></p>
                             <p className='text-5xl'>$840,300</p>
                             <p className='text-xl'>Amount Sold</p>
                         </div>
-                        <div className="col-12 col-md-3 text-center zindexFixed">
-                            <p className='text-4xl'><FontAwesomeIcon icon={faPeopleGroup} /></p>
+                        <div className="col-12 col-md-3 mb-5 mb-md-0 text-center zindexFixed">
+                            <p className='text-4xl text-blue-300'><FontAwesomeIcon icon={faPeopleGroup} /></p>
                             <p className='text-5xl'>100%</p>
                             <p className='text-xl'>Customer Satisfaction</p>
                         </div>
                         <div className="col-12 col-md-3 text-center zindexFixed">
-                            <p className='text-4xl'><FontAwesomeIcon icon={faStar} /></p>
+                            <p className='text-4xl text-yellow-400'><FontAwesomeIcon icon={faStar} /></p>
                             <p className='text-5xl'>4.99</p>
                             <p className='text-xl'>Customer Rating</p>
                         </div>
@@ -86,7 +87,7 @@ const HomePage = () => {
                 <div className="container">
                     <h3 className='text-center w-48 mx-auto py-2 text-warning fw-bold border-b-2'>News Feed</h3>
                     <div className="row">
-                        <div className="col-12 col-md-4 text-center">
+                        <div className="col-12 col-md-4 mb-5 mb-md-0 text-center">
                             <p className='text-3xl'>Newsletter</p>
                             <p>By subscribing to our company newsletter you will always be up-to-date on our latest promotions, deals and vehicle inventory!</p>
                             <form>
@@ -97,19 +98,18 @@ const HomePage = () => {
                                 <input className='btn btn-info' type="submit" value="Subscribe" />
                             </form>
                         </div>
-                        <div className="col-12 col-md-4 text-center">
+                        <div className="col-12 col-md-4 mb-5 mb-md-0 text-center">
                             <p className='text-3xl'>Latest Post</p>
                             <div>
-                                <p> <span><FontAwesomeIcon icon={faStar} /></span> See your message here. Make it compelling to attract other people to read and click on your <a className='text-info' href="/#">http://links</a> to your site.</p>
-                                <p><span><FontAwesomeIcon icon={faStar} /></span> See your message here. Make it compelling to attract other people to read and click on your <a className='text-info' href="/#">http://links</a> to your site.</p>
+                                <p>See your message here. Make it compelling to attract other people to read and click on your <a className='text-info' href="/#">http://Gmail</a> to your site.</p>
+                                <p> See your message here. Make it compelling to attract other people to read and click on your <a className='text-info' href="/#">http://E-mail</a> to your site.</p>
                             </div>
                         </div>
                         <div className="col-12 col-md-4 text-center">
                             <p className='text-3xl'>Contact Us</p>
-                            <p>Address: 5/27 Mohammadpur, Dhaka, Bangladesh</p>
-                            <p>Phone: +801612-345678</p>
-                            <p className='text-xl'>Customer Satisfaction</p>
-                            <p>Email: <a className=' text-white' href="/">sales@company.com</a></p>
+                            <p> <span> <FontAwesomeIcon icon={faAddressBook} /></span> Address: 5/27 Mohammadpur, Dhaka, Bangladesh</p>
+                            <p><span> <FontAwesomeIcon icon={faPhoneAlt} /></span> Phone: +801612-345678</p>
+                            <p><span> <FontAwesomeIcon icon={faAddressBook} /></span> Email: <a className=' text-white' href="/">borhan@manager.com</a></p>
                         </div>
                     </div>
                 </div>

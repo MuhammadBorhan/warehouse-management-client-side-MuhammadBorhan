@@ -1,11 +1,14 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/Firebase.init';
 
 const AddItem = () => {
+    const [user] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, event) => {
         console.log(data);
-        const url = `http://localhost:5000/product`;
+        const url = `http://localhost:5000/order`;
         fetch(url, {
             method: "POST",
             headers: {
@@ -25,9 +28,10 @@ const AddItem = () => {
             <div className="row">
                 <div className="col-12 col-md-6 mx-auto">
                     <form className='flex flex-column gap-4 border-4 p-3' onSubmit={handleSubmit(onSubmit)}>
-                        <input className='border-2 pl-2' type="text"  {...register("name")} placeholder='Name' />
+                        <input className='border-2 pl-2' type="text"  {...register("name")} required placeholder='Product Name' />
+                        <input className='border-2 pl-2' type="text" {...register("supplier")} value={user?.displayName} required readOnly placeholder='Supplier' />
+                        <input className='border-2 pl-2' type="email"  {...register("email")} value={user?.email} readOnly required placeholder='Email' />
                         <input className='border-2 pl-2' type="text" {...register("quantity")} placeholder='Quantity' />
-                        <input className='border-2 pl-2' type="text" {...register("supplier")} placeholder='Supplier' />
                         <input className='border-2 pl-2' type="text" {...register("price")} placeholder='price' />
                         <input className='border-2 pl-2' type="text" {...register("img")} placeholder='Photo URL' />
                         <input className='bg-gray-500 text-white px-2 py-1' type="submit" value='Add New' />

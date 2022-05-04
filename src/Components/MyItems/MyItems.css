@@ -1,0 +1,20 @@
+.myItems {
+    height: 60vh;
+}
+
+.myItems table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.myItems td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.myItems tr:nth-child(even) {
+    background-color: #dddddd;
+}
