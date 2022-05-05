@@ -8,7 +8,6 @@ import InventoryItems from '../InventoryItems/InventoryItems';
 import './HomePage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLaptopHouse, faMoneyBill1Wave, faPeopleGroup, faStar, faAddressBook, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
-// import { } from '@fortawesome/free-brands-svg-icons'
 
 
 const HomePage = () => {
@@ -50,7 +49,7 @@ const HomePage = () => {
                     }
                 </div>
                 <button className='my-5 mx-auto d-block'>
-                    <Link to='/manageitem' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>Manage Inventory</Link>
+                    <Link to='/manageitem' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>See All Manage Items</Link>
                 </button>
             </div>
 

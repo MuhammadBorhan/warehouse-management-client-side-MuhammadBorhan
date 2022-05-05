@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 const InventoryItems = ({ product }) => {
     const { _id, name, price, quantity, img, supplier, description } = product;
+
+
     return (
         <div className="col-md-4 g-4">
             <div className='shadow p-3 text-center'>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useProducts from '../../CustomHook/useProducts';
 import SingleInventory from '../SingleInventory/SingleInventory';
 
@@ -9,7 +9,7 @@ const ManageInventory = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `http://localhost:5000/product/${id}`;
+            const url = `http://localhost:5000/order/${id}`;
             fetch(url, {
                 method: "DELETE"
             })
@@ -21,8 +21,8 @@ const ManageInventory = () => {
                     setProducts(rest);
                 })
         }
-        // console.log('tate ki')
     }
+
 
     return (
         <div className='container py-4'>
@@ -31,7 +31,7 @@ const ManageInventory = () => {
                     <Link to='/additem' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>Add New Item</Link>
                 </button>
             </div>
-            <h3 className='text-center mb-4'>All Inventory Items</h3>
+            <h3 className='text-center mb-4'>All Manage Items: {products.length}</h3>
             <div className="row">
                 <div className="col-12">
                     {

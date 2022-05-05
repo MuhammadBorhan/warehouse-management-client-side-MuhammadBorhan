@@ -8,7 +8,7 @@ const MyItems = () => {
     const [myItems, setMyItems] = useState([]);
     useEffect(() => {
         const email = user.email;
-        const url = `http://localhost:5000/order?email=${email}`;
+        const url = `http://localhost:5000/orders?email=${email}`;
         console.log(url)
         fetch(url)
             .then(res => res.json())
@@ -34,26 +34,20 @@ const MyItems = () => {
 
     return (
         <div className='container text-center myItems'>
-            <h1 className='mt-24'>My Items: {myItems.length}</h1>
-            {
-                myItems.map(myItem => <div>
-                    <table>
-                        <tr>
+            <h1 className='mt-8'>My Items: {myItems.length}</h1>
+            <div className="row">
+                {
+                    myItems.map(myItem => <div className='col-12'>
+                        <table>
                             <td>{myItem.name}</td>
                             <td>{myItem.supplier}</td>
                             <td>{myItem.email}</td>
                             <td> <button onClick={() => handleDelete(myItem._id)} className='text-danger fw-bold'>X</button></td>
-                        </tr>
-                        <tr>
-                            <td>{myItem.name}</td>
-                            <td>{myItem.supplier}</td>
-                            <td>{myItem.email}</td>
-                            <td> <button onClick={() => handleDelete(myItem._id)} className='text-danger fw-bold'>X</button></td>
-                        </tr>
-                    </table>
+                        </table>
 
-                </div>)
-            }
+                    </div>)
+                }
+            </div>
         </div>
     );
 };

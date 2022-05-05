@@ -4,14 +4,14 @@ import { Link, useParams } from 'react-router-dom';
 import useProducts from '../../CustomHook/useProducts';
 
 const Update = () => {
-    const [products, setProducts] = useProducts();
+    const [products] = useProducts();
     const [product, setProduct] = useState({});
     const [relode, setRelode] = useState(false);
     const { id } = useParams();
     const { img, _id, name, price, quantity, supplier, description } = product;
 
     useEffect(() => {
-        const url = `http://localhost:5000/product/${id}`;
+        const url = `http://localhost:5000/order/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -22,11 +22,12 @@ const Update = () => {
 
     const handleQuantity = event => {
         event.preventDefault();
-        const newQuantity = event.target.name.value;
+        const inputQuantity = event.target.name.value;
+        const newQuantity = parseInt(inputQuantity);
         if (newQuantity !== '') {
-            const addQuantity = (quantity) + parseInt(newQuantity);
+            const addQuantity = (quantity) + newQuantity;
 
-            const url = `http://localhost:5000/product/${id}`;
+            const url = `http://localhost:5000/order/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -44,13 +45,10 @@ const Update = () => {
     const handleReduce = (product) => {
         const exist = products.find(pd => pd._id === product._id)
         if (exist && exist.quantity >= 1) {
-            // const rest = products.filter(pd => pd._id !== product._id);
-            // exist.quantity = exist.quantity - 1;
-            // setProduct([...rest, exist])
             exist.quantity = exist.quantity - 1;
             const setQuantity = exist.quantity;
 
-            const url = `http://localhost:5000/product/${id}`;
+            const url = `http://localhost:5000/order/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -94,7 +92,7 @@ const Update = () => {
                 </div>
             </div>
             <button className='my-5 mx-auto d-block'>
-                <Link to='/manageitem' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>Manage Inventory</Link>
+                <Link to='/manageitem' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>See All Manage Items</Link>
             </button>
         </div>
     );
