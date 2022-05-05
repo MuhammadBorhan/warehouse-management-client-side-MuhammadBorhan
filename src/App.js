@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AddItem from './Components/AddItem/AddItem';
+import Blogs from './Components/Blogs/Blogs';
 import ManageInventory from './Components/ManageInventory/ManageInventory';
 import MyItems from './Components/MyItems/MyItems';
 import Footer from './Home/Footer/Footer';
@@ -23,6 +24,7 @@ function App() {
         <Route path='/product/:id' element={<PrivateRoute><Update></Update></PrivateRoute>}></Route>
         <Route path='/additem' element={<PrivateRoute><AddItem></AddItem></PrivateRoute>}></Route>
         <Route path='/myitems' element={<PrivateRoute><MyItems></MyItems></PrivateRoute>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<PageNotFound></PageNotFound>}></Route>

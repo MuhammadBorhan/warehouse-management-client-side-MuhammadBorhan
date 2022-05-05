@@ -21,6 +21,7 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto text-center">
                             <Nav.Link className='text-white text-xl' as={ActiveLink} to='/home'>Home</Nav.Link>
+                            <Nav.Link className='text-white text-xl' as={ActiveLink} to='/blogs'>Blogs</Nav.Link>
 
                             {
                                 user ? <>
@@ -31,6 +32,7 @@ const Header = () => {
                                     <Nav.Link onClick={handleSignout} className='text-white text-xl'>Log out</Nav.Link>
                                 </> : <Nav.Link className='text-white text-xl' as={ActiveLink} to='/login'>LogIn</Nav.Link>
                             }
+
                             <Nav.Link className='text-white text-xl' as={ActiveLink} to='/register'>Register</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
