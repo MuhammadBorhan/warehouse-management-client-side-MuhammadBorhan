@@ -23,32 +23,11 @@ const Update = () => {
 
 
 
-    const handleQuantity = event => {
-        event.preventDefault();
-        const inputQuantity = event.target.name.value;
-        const newQuantity = parseInt(inputQuantity);
-        if (newQuantity !== '') {
-            // const addQuantity = (quantity) + newQuantity;
-            // const url = `http://localhost:5000/order/${id}`;
-            // fetch(url, {
-            //     method: 'PUT',
-            //     headers: {
-            //         'content-type': 'application/json'
-            //     },
-            //     body: JSON.stringify({ addQuantity })
-            // })
-            //     .then(res => res.json())
-            //     .then(data => {
-            //         event.target.reset();
-            //     })
-        }
-    }
-
     const handleReduce = (product) => {
         const exist = products.find(pd => pd._id === product._id)
         if (exist && exist.quantity >= 1) {
             exist.quantity = exist.quantity - 1;
-            const setQuantity = exist.quantity;
+            const reduceQuantity = exist.quantity;
 
             const url = `http://localhost:5000/order/${id}`;
             fetch(url, {
@@ -56,11 +35,34 @@ const Update = () => {
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify({ setQuantity })
+                body: JSON.stringify({ reduceQuantity })
             })
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
+                })
+        }
+    }
+
+
+    const handleQuantity = event => {
+        event.preventDefault();
+        const inputQuantity = event.target.name.value;
+
+        if (inputQuantity !== '') {
+            const newQuantity = parseInt(inputQuantity);
+            const addQuantity = parseInt(quantity) + newQuantity;
+            const url = `http://localhost:5000/order/${id}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({ addQuantity })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    event.target.reset();
                 })
         }
     }
@@ -75,13 +77,13 @@ const Update = () => {
                         <Card.Img variant="top" src={img} />
                         <Card.Body>
                             <Card.Title>{name}</Card.Title>
-                            <Card.Text>{description}</Card.Text>
+                            <Card.Text className='fw-bold'>{description}</Card.Text>
                         </Card.Body>
                         <ListGroup className="list-group-flush">
-                            <ListGroupItem>Supplier: {supplier}</ListGroupItem>
-                            <ListGroupItem>Id: {_id}</ListGroupItem>
-                            <ListGroupItem>Price: ${price}</ListGroupItem>
-                            <ListGroupItem>Quantity: {quantity}</ListGroupItem>
+                            <ListGroupItem><span className='fw-bold'>Supplier:</span> {supplier}</ListGroupItem>
+                            <ListGroupItem><span className='fw-bold '>Id:</span> {_id}</ListGroupItem>
+                            <ListGroupItem><span className='fw-bold'>Price:</span> ${price}</ListGroupItem>
+                            <ListGroupItem><span className='fw-bold'>Quantity:</span> {quantity}</ListGroupItem>
                         </ListGroup>
                         <Card.Body>
                             <button onClick={() => handleReduce(product)} className='btn btn-primary fw-bold'>Deliver</button>

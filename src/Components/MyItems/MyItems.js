@@ -34,17 +34,20 @@ const MyItems = () => {
 
     return (
         <div className='container text-center myItems'>
-            <h1 className='mt-8'>My Items: {myItems.length}</h1>
+            <h1 className='mt-2'>My Items: {myItems.length}</h1>
             <div className="row">
                 {
-                    myItems.map(myItem => <div key={myItem._id} className='col-12'>
-                        <table>
-                            <td>{myItem.name}</td>
-                            <td>{myItem.supplier}</td>
-                            <td>{myItem.email}</td>
-                            <td> <button onClick={() => handleDelete(myItem._id)} className='text-danger fw-bold'>X</button></td>
-                        </table>
-
+                    myItems.map(myItem => <div key={myItem._id} className='col-12 col-md-4 g-4'>
+                        <div className='shadow p-3 text-center'>
+                            <img className='rounded' src={myItem.img} alt="" />
+                            <p className='mb-0 mt-2 fw-bold'>{myItem.name}</p>
+                            <p className='my-1'><span className='fw-bold'>Price: </span> ${myItem.price}</p>
+                            <p className='m-0'><span className='fw-bold'>Quantity: </span>{myItem.quantity}</p>
+                            <p className='my-1'><span className='fw-bold'>Supplier:</span> {myItem.supplier}</p>
+                            <p className='mb-2'><span className='fw-bold'>Email:</span> {myItem.email}</p>
+                            <p className='font-bold'>{myItem.description}</p>
+                            <button onClick={() => handleDelete(myItem._id)} className='px-3 bg-red-600 text-white fw-bold py-1 rounded'>X</button>
+                        </div>
                     </div>)
                 }
             </div>
