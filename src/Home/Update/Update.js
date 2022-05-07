@@ -98,7 +98,7 @@ const Update = () => {
                 </div>
             </div>
             <button className='my-5 mx-auto d-block'>
-                <Link to='/manageitem' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>See All Manage Items</Link>
+                <Link to='/manageitem' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>See All Manage Inventory</Link>
             </button>
         </div>
     );

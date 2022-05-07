@@ -49,7 +49,7 @@ const HomePage = () => {
                     }
                 </div>
                 <button className='my-5 mx-auto d-block'>
-                    <Link to='/manageitem' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>See All Manage Items</Link>
+                    <Link to='/manageitem' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>See All Manage Inventory</Link>
                 </button>
             </div>
 
@@ -88,7 +88,7 @@ const HomePage = () => {
                     <div className="row">
                         <div className="col-12 col-md-4 mb-5 mb-md-0 text-center">
                             <p className='text-3xl'>Newsletter</p>
-                            <p>By subscribing to our company newsletter you will always be up-to-date on our latest promotions, deals and vehicle inventory!</p>
+                            <p>By subscribing to our company newsletter you will always be up-to-date on our deals and laptop inventory.</p>
                             <form>
                                 <input className='rounded px-2' type="text" name="" id="" placeholder='Your Name' />
                                 <br />
