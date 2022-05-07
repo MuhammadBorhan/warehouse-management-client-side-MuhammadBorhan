@@ -1,10 +1,14 @@
 import React from 'react';
+import { Spinner } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import useProducts from '../../CustomHook/useProducts';
+import auth from '../../Firebase/Firebase.init';
 import SingleInventory from '../SingleInventory/SingleInventory';
 
 const ManageInventory = () => {
     const [products, setProducts] = useProducts();
+    const [user, loading, error] = useAuthState(auth);
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure?');

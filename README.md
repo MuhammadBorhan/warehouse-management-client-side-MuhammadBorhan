@@ -1,10 +1,17 @@
-# Getting Started with Create React App
+# Laptop Inventory House
+# Description
+I feet much better now than I was scared at the begining of this assignment. this assignment was not difficult but it was tricky. Alhamdulillah I was able to do it even then.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site link: https://scintillating-quokka-d477fd.netlify.app/
 
-## Available Scripts
-
-In the project directory, you can run:
+## Features and functionality.
+* only six items for inventory-section in Home page.
+* Create Register route for new user and login route for already user.
+* Make private route for manage-item,add-item, and my-item.
+* Blogs route for three question with answer.
+* Add Extra two section in home page.
+* Reset button for forget password using tostify.
+* Add corusel in home page.
 
 ### `npm start`
 
