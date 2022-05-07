@@ -27,9 +27,9 @@ const Header = () => {
                             {
                                 user ? <>
                                     <Nav.Link className='text-white text-xl' as={ActiveLink} to='/manageitem'>Manage-Item</Nav.Link>
-                                    <Nav.Link className='text-white text-xl' as={ActiveLink} to='/additem'>Add-Item</Nav.Link>
-                                    <Nav.Link className='text-white text-xl' as={ActiveLink} to='/myitems'>My-Item</Nav.Link>
-                                    <Nav.Link onClick={handleSignout} className='text-white text-xl'>Log out</Nav.Link>
+                                    <Nav.Link className='text-white text-xl' as={ActiveLink} to='/additem'>AddItem</Nav.Link>
+                                    <Nav.Link className='text-white text-xl' as={ActiveLink} to='/myitems'>MyItems</Nav.Link>
+                                    <Nav.Link onClick={handleSignout} className='text-white text-xl'>Logout</Nav.Link>
                                 </> : <Nav.Link className='text-white text-xl' as={ActiveLink} to='/login'>LogIn</Nav.Link>
                             }
 

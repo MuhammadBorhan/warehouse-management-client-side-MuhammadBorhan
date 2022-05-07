@@ -8,7 +8,7 @@ const MyItems = () => {
     const [myItems, setMyItems] = useState([]);
     useEffect(() => {
         const email = user.email;
-        const url = `http://localhost:5000/orders?email=${email}`;
+        const url = `https://cryptic-oasis-35139.herokuapp.com/orders?email=${email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setMyItems(data))
@@ -18,7 +18,7 @@ const MyItems = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://cryptic-oasis-35139.herokuapp.com/order/${id}`;
             fetch(url, {
                 method: "DELETE"
             })
@@ -33,8 +33,8 @@ const MyItems = () => {
     }
 
     return (
-        <div className='container text-center myItems'>
-            <h1 className='mt-2'>My Items: {myItems.length}</h1>
+        <div className='container text-center myItems py-4'>
+            <h2>My Items: {myItems.length}</h2>
             <div className="row">
                 {
                     myItems.map(myItem => <div key={myItem._id} className='col-12 col-md-4 g-4'>

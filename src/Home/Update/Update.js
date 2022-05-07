@@ -8,11 +8,11 @@ const Update = () => {
     const [product, setProduct] = useState({});
     const [relode, setRelode] = useState(false);
     const { id } = useParams();
-    const { img, _id, name, price, quantity, supplier, description } = product;
+    const { img, _id, name, price, quantity, supplier, description, order } = product;
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/order/${id}`;
+        const url = `https://cryptic-oasis-35139.herokuapp.com/order/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -29,7 +29,7 @@ const Update = () => {
             exist.quantity = exist.quantity - 1;
             const reduceQuantity = exist.quantity;
 
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://cryptic-oasis-35139.herokuapp.com/order/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -52,7 +52,7 @@ const Update = () => {
         if (inputQuantity !== '') {
             const newQuantity = parseInt(inputQuantity);
             const addQuantity = parseInt(quantity) + newQuantity;
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://cryptic-oasis-35139.herokuapp.com/order/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -83,6 +83,7 @@ const Update = () => {
                             <ListGroupItem><span className='fw-bold'>Supplier:</span> {supplier}</ListGroupItem>
                             <ListGroupItem><span className='fw-bold '>Id:</span> {_id}</ListGroupItem>
                             <ListGroupItem><span className='fw-bold'>Price:</span> ${price}</ListGroupItem>
+                            <p className='my-1'><span className='fw-bold'>Sold:</span> {order ? order : '40'}</p>
                             <ListGroupItem><span className='fw-bold'>Quantity:</span> {quantity}</ListGroupItem>
                         </ListGroup>
                         <Card.Body>
@@ -90,15 +91,15 @@ const Update = () => {
                         </Card.Body>
 
                         <form onSubmit={handleQuantity}>
-                            <input className='border-1 pl-2 py-1' type="text" name="name" id="" placeholder='Add New Quantity' />
-                            <input className='btn btn-success fw-bold' type="submit" value="Add" />
+                            <input className='border-1 pl-2 py-1' type="text" name="name" id="" placeholder='New Quantity' />
+                            <input className='btn btn-success fw-bold' type="submit" value="ReStock" />
                         </form>
 
                     </Card>
                 </div>
             </div>
             <button className='my-5 mx-auto d-block'>
-                <Link to='/manageitem' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>See All Manage Inventory</Link>
+                <Link to='/manageitem' className='text-decoration-none rounded bg-blue-700 text-xl p-2 text-white fw-bold'>All Manage Inventories</Link>
             </button>
         </div>
     );

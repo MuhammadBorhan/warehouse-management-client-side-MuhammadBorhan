@@ -8,7 +8,7 @@ const AddItem = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, event) => {
         console.log(data);
-        const url = `http://localhost:5000/order`;
+        const url = `https://cryptic-oasis-35139.herokuapp.com/order`;
         fetch(url, {
             method: "POST",
             headers: {
