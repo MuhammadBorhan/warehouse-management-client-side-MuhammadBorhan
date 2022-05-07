@@ -10,6 +10,7 @@ const Update = () => {
     const { id } = useParams();
     const { img, _id, name, price, quantity, supplier, description } = product;
 
+
     useEffect(() => {
         const url = `http://localhost:5000/order/${id}`;
         fetch(url)
@@ -18,27 +19,28 @@ const Update = () => {
                 setProduct(data);
                 setRelode(!relode)
             })
-    }, [id, relode]);
+    }, [id, relode, product]);
+
+
 
     const handleQuantity = event => {
         event.preventDefault();
         const inputQuantity = event.target.name.value;
         const newQuantity = parseInt(inputQuantity);
         if (newQuantity !== '') {
-            const addQuantity = (quantity) + newQuantity;
-
-            const url = `http://localhost:5000/order/${id}`;
-            fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({ addQuantity })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    event.target.reset();
-                })
+            // const addQuantity = (quantity) + newQuantity;
+            // const url = `http://localhost:5000/order/${id}`;
+            // fetch(url, {
+            //     method: 'PUT',
+            //     headers: {
+            //         'content-type': 'application/json'
+            //     },
+            //     body: JSON.stringify({ addQuantity })
+            // })
+            //     .then(res => res.json())
+            //     .then(data => {
+            //         event.target.reset();
+            //     })
         }
     }
 
@@ -84,10 +86,12 @@ const Update = () => {
                         <Card.Body>
                             <button onClick={() => handleReduce(product)} className='btn btn-primary fw-bold'>Deliver</button>
                         </Card.Body>
+
                         <form onSubmit={handleQuantity}>
                             <input className='border-1 pl-2 py-1' type="text" name="name" id="" placeholder='Add New Quantity' />
                             <input className='btn btn-success fw-bold' type="submit" value="Add" />
                         </form>
+
                     </Card>
                 </div>
             </div>

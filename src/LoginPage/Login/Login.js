@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Form, Spinner } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/Firebase.init';
 import google from '../../images/google/google.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const Login = () => {
+    const [user] = useAuthState(auth);
     const [emails, setEmails] = useState('');
     const [show, setShow] = useState(false);
     const [signInWithEmailAndPassword, signUser, signLoading, signError] = useSignInWithEmailAndPassword(auth);
@@ -16,15 +18,35 @@ const Login = () => {
     const navigate = useNavigate();
     let location = useLocation();
 
-    let from = location.state?.from?.pathname || "/";
+    let from = location.state?.from?.pathname || "/myitems";
 
     if (sending) {
         return <p className='text-center text-primary fs-2 fw-bold reset-pass'>Sending...</p>
     }
 
+
     if (signUser) {
-        navigate(from, { replace: true });
+        const url = 'http://localhost:5000/login';
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                email: user.email
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then(data => {
+                console.log(data)
+                localStorage.setItem('accessToken', data.token)
+                navigate(from, { replace: true });
+            });
+
+
     }
+
+
     if (googleUser) {
         navigate('/myitems')
     }
@@ -35,6 +57,7 @@ const Login = () => {
         const password = event.target.password.value;
 
         signInWithEmailAndPassword(email, password)
+
     }
     return (
         <div className='container'>

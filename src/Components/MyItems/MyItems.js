@@ -9,10 +9,10 @@ const MyItems = () => {
     useEffect(() => {
         const email = user.email;
         const url = `http://localhost:5000/orders?email=${email}`;
-        console.log(url)
         fetch(url)
             .then(res => res.json())
             .then(data => setMyItems(data))
+
     }, [user]);
 
     const handleDelete = id => {
@@ -37,7 +37,7 @@ const MyItems = () => {
             <h1 className='mt-8'>My Items: {myItems.length}</h1>
             <div className="row">
                 {
-                    myItems.map(myItem => <div className='col-12'>
+                    myItems.map(myItem => <div key={myItem._id} className='col-12'>
                         <table>
                             <td>{myItem.name}</td>
                             <td>{myItem.supplier}</td>
