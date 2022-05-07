@@ -1,4 +1,4 @@
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import slide1 from '../../../src/images/slider/slide1.jpg';
 import slide2 from '../../../src/images/slider/slide2.jpg';
@@ -8,9 +8,12 @@ import InventoryItems from '../InventoryItems/InventoryItems';
 import './HomePage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLaptopHouse, faMoneyBill1Wave, faPeopleGroup, faStar, faAddressBook, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/Firebase.init';
 
 
 const HomePage = () => {
+    const [user, loading, error] = useAuthState(auth);
     const [products] = useProducts();
     const itemProducts = products.slice(0, 6);
     return (
@@ -44,8 +47,10 @@ const HomePage = () => {
             <div className='container pt-4'>
                 <h3 className='mb-0 text-center'>Inventory Items</h3>
                 <div className="row">
+
                     {
-                        itemProducts.map(product => <InventoryItems key={product._id} product={product}></InventoryItems>)
+                        loading ? <p className='text-center mt-4'> <Spinner animation="border" variant="danger" /></p> :
+                            itemProducts.map(product => <InventoryItems key={product._id} product={product}></InventoryItems>)
                     }
                 </div>
                 <button className='my-5 mx-auto d-block'>
