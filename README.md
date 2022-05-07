@@ -5,7 +5,7 @@ I feet much better now than I was scared at the begining of this assignment. thi
 Live site link: https://scintillating-quokka-d477fd.netlify.app/
 
 ## Features and functionality.
-* only six items for inventory-section in Home page.
+* only six items for inventory-section in Home page and All items in manage-items route.
 * Create Register route for new user and login route for already user.
 * Make private route for manage-item,add-item, and my-item.
 * Blogs route for three question with answer.

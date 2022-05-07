@@ -49,8 +49,8 @@ const HomePage = () => {
                 <div className="row">
 
                     {
-                        loading ? <p className='text-center mt-4'> <Spinner animation="border" variant="danger" /></p> :
-                            itemProducts.map(product => <InventoryItems key={product._id} product={product}></InventoryItems>)
+
+                        itemProducts.length === 0 ? <p className='text-center mt-4'> <Spinner animation="border" variant="danger" /></p> : itemProducts.map(product => <InventoryItems key={product._id} product={product}></InventoryItems>)
                     }
                 </div>
                 <button className='my-5 mx-auto d-block'>

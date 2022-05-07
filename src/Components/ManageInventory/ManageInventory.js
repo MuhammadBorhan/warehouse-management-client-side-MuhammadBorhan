@@ -38,7 +38,7 @@ const ManageInventory = () => {
             <h3 className='text-center mb-4'>All Manage Items: {products.length}</h3>
             <div className="row">
                 {
-                    products.map(product => <SingleInventory handleDelete={handleDelete} key={product._id} product={product}></SingleInventory>)
+                    products.length === 0 ? <p className='text-center mt-4'> <Spinner animation="border" variant="danger" /></p> : products.map(product => <SingleInventory handleDelete={handleDelete} key={product._id} product={product}></SingleInventory>)
                 }
             </div>
         </div>
